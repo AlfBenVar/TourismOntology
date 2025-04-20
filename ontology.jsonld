@@ -43,15 +43,6 @@
   } ]
 }, {
   "@id" : "_:genid14",
-  "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
-  "http://www.w3.org/2003/11/swrl#argument1" : [ {
-    "@id" : "http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e"
-  } ],
-  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
-    "@id" : "http://www.ejemplo.org/ontologias/turismo#CulturalEvent"
-  } ]
-}, {
-  "@id" : "_:genid16",
   "@type" : [ "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom" ],
   "http://www.w3.org/2003/11/swrl#argument1" : [ {
     "@id" : "http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e"
@@ -61,6 +52,15 @@
   } ],
   "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
     "@id" : "http://www.ejemplo.org/ontologias/turismo#HeldIn"
+  } ]
+}, {
+  "@id" : "_:genid16",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e"
+  } ],
+  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
+    "@id" : "http://www.ejemplo.org/ontologias/turismo#CulturalEvent"
   } ]
 }, {
   "@id" : "_:genid18",
@@ -111,15 +111,6 @@
   } ]
 }, {
   "@id" : "_:genid21",
-  "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
-  "http://www.w3.org/2003/11/swrl#argument1" : [ {
-    "@id" : "http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e"
-  } ],
-  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
-    "@id" : "http://www.ejemplo.org/ontologias/turismo#Events"
-  } ]
-}, {
-  "@id" : "_:genid23",
   "@type" : [ "http://www.w3.org/2003/11/swrl#IndividualPropertyAtom" ],
   "http://www.w3.org/2003/11/swrl#argument1" : [ {
     "@id" : "http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e"
@@ -129,6 +120,15 @@
   } ],
   "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
     "@id" : "http://www.ejemplo.org/ontologias/turismo#HeldIn"
+  } ]
+}, {
+  "@id" : "_:genid23",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e"
+  } ],
+  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
+    "@id" : "http://www.ejemplo.org/ontologias/turismo#Events"
   } ]
 }, {
   "@id" : "_:genid25",
@@ -497,6 +497,8 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.ejemplo.org/ontologias/turismo#Tourism"
+  }, {
+    "@id" : "_:genid1"
   } ]
 }, {
   "@id" : "http://www.ejemplo.org/ontologias/turismo#Gastronomic",
@@ -533,8 +535,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://www.ejemplo.org/ontologias/turismo#Events"
-  }, {
-    "@id" : "_:genid1"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "HeldIn"
@@ -779,6 +779,8 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.ejemplo.org/ontologias/turismo#Tourism"
+  }, {
+    "@id" : "_:genid2"
   } ],
   "http://www.w3.org/2002/07/owl#owl:sameAs" : [ {
     "@value" : "https://dbpedia.org/page/Restaurant"
@@ -959,8 +961,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://www.ejemplo.org/ontologias/turismo#Restaurants"
-  }, {
-    "@id" : "_:genid2"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "hasARating"
@@ -982,6 +982,9 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#topDataProperty"
   } ]
 }, {
   "@id" : "http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c",

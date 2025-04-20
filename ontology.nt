@@ -56,10 +56,6 @@
 <http://www.ejemplo.org/ontologias/turismo#HeldIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://www.ejemplo.org/ontologias/turismo#HeldIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://www.ejemplo.org/ontologias/turismo#HeldIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ejemplo.org/ontologias/turismo#Events> .
-<http://www.ejemplo.org/ontologias/turismo#HeldIn> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid1 .
-_:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.ejemplo.org/ontologias/turismo#Cities> .
-_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ejemplo.org/ontologias/turismo#HeldIn> .
-_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://www.ejemplo.org/ontologias/turismo#HeldIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ejemplo.org/ontologias/turismo#Cities> .
 <http://www.ejemplo.org/ontologias/turismo#HeldIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an event to the city where it takes place" .
 <http://www.ejemplo.org/ontologias/turismo#HeldIn> <http://www.w3.org/2000/01/rdf-schema#label> "HeldIn" .
@@ -85,17 +81,13 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://www.ejemplo.org/ontologias/turismo#hasARating> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://www.ejemplo.org/ontologias/turismo#hasARating> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://www.ejemplo.org/ontologias/turismo#hasARating> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ejemplo.org/ontologias/turismo#Restaurants> .
-<http://www.ejemplo.org/ontologias/turismo#hasARating> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid2 .
-_:genid2 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#decimal> .
-_:genid2 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid2 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ejemplo.org/ontologias/turismo#hasARating> .
-_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://www.ejemplo.org/ontologias/turismo#hasARating> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
 <http://www.ejemplo.org/ontologias/turismo#hasARating> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the average rating score of a restaurant as a decimal number" .
 <http://www.ejemplo.org/ontologias/turismo#hasARating> <http://www.w3.org/2000/01/rdf-schema#label> "hasARating" .
 # 
 # http://www.ejemplo.org/ontologias/turismo#hasName
 <http://www.ejemplo.org/ontologias/turismo#hasName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.ejemplo.org/ontologias/turismo#hasName> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
 <http://www.ejemplo.org/ontologias/turismo#hasName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://www.ejemplo.org/ontologias/turismo#hasName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ejemplo.org/ontologias/turismo#Hotels> .
 <http://www.ejemplo.org/ontologias/turismo#hasName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
@@ -198,6 +190,10 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # http://www.ejemplo.org/ontologias/turismo#Events
 <http://www.ejemplo.org/ontologias/turismo#Events> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.ejemplo.org/ontologias/turismo#Events> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.ejemplo.org/ontologias/turismo#Tourism> .
+<http://www.ejemplo.org/ontologias/turismo#Events> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.ejemplo.org/ontologias/turismo#Cities> .
+_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ejemplo.org/ontologias/turismo#HeldIn> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://www.ejemplo.org/ontologias/turismo#Events> <http://www.w3.org/2000/01/rdf-schema#comment> "Events are organized activities or occurrences intended to attract tourists, such as festivals, exhibitions, or cultural performances" .
 <http://www.ejemplo.org/ontologias/turismo#Events> <http://www.w3.org/2000/01/rdf-schema#label> "Events" .
 # 
@@ -277,6 +273,11 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # http://www.ejemplo.org/ontologias/turismo#Restaurants
 <http://www.ejemplo.org/ontologias/turismo#Restaurants> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.ejemplo.org/ontologias/turismo#Restaurants> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.ejemplo.org/ontologias/turismo#Tourism> .
+<http://www.ejemplo.org/ontologias/turismo#Restaurants> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid2 .
+_:genid2 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#decimal> .
+_:genid2 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid2 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ejemplo.org/ontologias/turismo#hasARating> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://www.ejemplo.org/ontologias/turismo#Restaurants> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurants are establishments that prepare and serve food and drinks to customers, often catering to both locals and tourists" .
 <http://www.ejemplo.org/ontologias/turismo#Restaurants> <http://www.w3.org/2000/01/rdf-schema#label> "Restaurants" .
 <http://www.ejemplo.org/ontologias/turismo#Restaurants> <http://www.w3.org/2002/07/owl#owl:sameAs> "https://dbpedia.org/page/Restaurant" .
@@ -468,15 +469,15 @@ _:genid12 <http://www.w3.org/2003/11/swrl#body> _:genid15 .
 _:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid13 .
 _:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 _:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid14 .
+_:genid14 <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c> .
 _:genid14 <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> .
-_:genid14 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#CulturalEvent> .
-_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid14 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HeldIn> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
 _:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
 _:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid16 .
-_:genid16 <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c> .
 _:genid16 <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> .
-_:genid16 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HeldIn> .
-_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid16 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#CulturalEvent> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
 _:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
 _:genid12 <http://www.w3.org/2003/11/swrl#head> _:genid17 .
 _:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
@@ -493,15 +494,15 @@ _:genid19 <http://www.w3.org/2003/11/swrl#body> _:genid22 .
 _:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid20 .
 _:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 _:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid21 .
+_:genid21 <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c> .
 _:genid21 <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> .
-_:genid21 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#Events> .
-_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid21 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HeldIn> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
 _:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
 _:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid23 .
-_:genid23 <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c> .
 _:genid23 <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> .
-_:genid23 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HeldIn> .
-_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid23 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#Events> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
 _:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
 _:genid19 <http://www.w3.org/2003/11/swrl#head> _:genid24 .
 _:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .

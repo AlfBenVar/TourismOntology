@@ -62,11 +62,7 @@ owl:owl:sameAs rdf:type owl:AnnotationProperty ;
 ###  http://www.ejemplo.org/ontologias/turismo#HeldIn
 <http://www.ejemplo.org/ontologias/turismo#HeldIn> rdf:type owl:ObjectProperty ,
                                                             owl:FunctionalProperty ;
-                                                   rdfs:domain <http://www.ejemplo.org/ontologias/turismo#Events> ,
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty <http://www.ejemplo.org/ontologias/turismo#HeldIn> ;
-                                                                 owl:someValuesFrom <http://www.ejemplo.org/ontologias/turismo#Cities>
-                                                               ] ;
+                                                   rdfs:domain <http://www.ejemplo.org/ontologias/turismo#Events> ;
                                                    rdfs:range <http://www.ejemplo.org/ontologias/turismo#Cities> ;
                                                    rdfs:comment "Relates an event to the city where it takes place" ;
                                                    rdfs:label "HeldIn" .
@@ -88,20 +84,16 @@ owl:owl:sameAs rdf:type owl:AnnotationProperty ;
 ###  http://www.ejemplo.org/ontologias/turismo#hasARating
 <http://www.ejemplo.org/ontologias/turismo#hasARating> rdf:type owl:DatatypeProperty ,
                                                                 owl:FunctionalProperty ;
-                                                       rdfs:domain <http://www.ejemplo.org/ontologias/turismo#Restaurants> ,
-                                                                   [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://www.ejemplo.org/ontologias/turismo#hasARating> ;
-                                                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                     owl:onDataRange xsd:decimal
-                                                                   ] ;
+                                                       rdfs:domain <http://www.ejemplo.org/ontologias/turismo#Restaurants> ;
                                                        rdfs:range xsd:decimal ;
                                                        rdfs:comment "Represents the average rating score of a restaurant as a decimal number" ;
                                                        rdfs:label "hasARating" .
 
 
 ###  http://www.ejemplo.org/ontologias/turismo#hasName
-<http://www.ejemplo.org/ontologias/turismo#hasName> rdf:type owl:DatatypeProperty ,
-                                                             owl:FunctionalProperty ;
+<http://www.ejemplo.org/ontologias/turismo#hasName> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:subPropertyOf owl:topDataProperty ;
+                                                    rdf:type owl:FunctionalProperty ;
                                                     rdfs:domain <http://www.ejemplo.org/ontologias/turismo#Hotels> ;
                                                     rdfs:range xsd:string ;
                                                     rdfs:comment "Represents the official name of a hotel as a text string" ;
@@ -212,7 +204,11 @@ owl:owl:sameAs rdf:type owl:AnnotationProperty ;
 
 ###  http://www.ejemplo.org/ontologias/turismo#Events
 <http://www.ejemplo.org/ontologias/turismo#Events> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Tourism> ;
+                                                   rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Tourism> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.ejemplo.org/ontologias/turismo#HeldIn> ;
+                                                                     owl:someValuesFrom <http://www.ejemplo.org/ontologias/turismo#Cities>
+                                                                   ] ;
                                                    rdfs:comment "Events are organized activities or occurrences intended to attract tourists, such as festivals, exhibitions, or cultural performances" ;
                                                    rdfs:label "Events" .
 
@@ -304,7 +300,12 @@ owl:owl:sameAs rdf:type owl:AnnotationProperty ;
 
 ###  http://www.ejemplo.org/ontologias/turismo#Restaurants
 <http://www.ejemplo.org/ontologias/turismo#Restaurants> rdf:type owl:Class ;
-                                                        rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Tourism> ;
+                                                        rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Tourism> ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty <http://www.ejemplo.org/ontologias/turismo#hasARating> ;
+                                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                          owl:onDataRange xsd:decimal
+                                                                        ] ;
                                                         rdfs:comment "Restaurants are establishments that prepare and serve food and drinks to customers, often catering to both locals and tourists" ;
                                                         rdfs:label "Restaurants" ;
                                                         owl:owl:sameAs "https://dbpedia.org/page/Restaurant" .
@@ -511,15 +512,15 @@ owl:owl:sameAs rdf:type owl:AnnotationProperty ;
    rdfs:label "CulturalCityR3" ;
    rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HeldIn> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c>
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#CulturalEvent> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#CulturalEvent> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e>
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HeldIn> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c>
                                                                 ] ;
                                                       rdf:rest rdf:nil
                                                     ]
@@ -538,15 +539,15 @@ owl:owl:sameAs rdf:type owl:AnnotationProperty ;
    rdfs:label "CityEventR1" ;
    rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HeldIn> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c>
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#Events> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#Events> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e>
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HeldIn> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c>
                                                                 ] ;
                                                       rdf:rest rdf:nil
                                                     ]
