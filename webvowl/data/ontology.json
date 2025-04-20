@@ -1,0 +1,404 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "undefined" ],
+    "title" : {
+      "undefined" : "Ontology of Tourism in Spain"
+    },
+    "iri" : "http://example.org/OntologiaTurismo",
+    "description" : {
+      "undefined" : "An ontology that describes different types of tourist resources in various cities across Spain"
+    },
+    "other" : {
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2025-04-19",
+        "type" : "label"
+      } ],
+      "publisher" : [ {
+        "identifier" : "publisher",
+        "language" : "undefined",
+        "value" : "Alfredo Benítez Vargas, Computer Engineering student at the Universitat Oberta de Catalunya (UOC)",
+        "type" : "label"
+      } ],
+      "issued" : [ {
+        "identifier" : "issued",
+        "language" : "undefined",
+        "value" : "2025-04-19",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "undefined",
+        "value" : "Ontology of Tourism in Spain",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Business",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "0",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Mexican",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "2",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Rural",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "4",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Bus",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "8",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Tram",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "10",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Transports",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "subClasses" : [ "8", "10", "12", "13", "14" ],
+    "id" : "9",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Andalusian",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "15",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#CulturalCity",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "16",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Cities",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "subClasses" : [ "16", "17", "18" ],
+    "id" : "7",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Museum",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "19",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#BigCity",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "18",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Mediterranean",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "20",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#MusicEvent",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "21",
+    "superClasses" : [ "22" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Metro",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "12",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Events",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "subClasses" : [ "21", "23", "24", "25", "26" ],
+    "id" : "22",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Technology",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "24",
+    "superClasses" : [ "22" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Taxi",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "13",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Tourism",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "subClasses" : [ "22", "9", "7", "6", "1", "3" ],
+    "id" : "11"
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Sporting",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "25",
+    "superClasses" : [ "22" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Attractions",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "subClasses" : [ "27", "28", "29", "19", "30" ],
+    "id" : "6",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Tourist",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "31",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#CulturalEvent",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "26",
+    "superClasses" : [ "22" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Italian",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "32",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#CulturalAttraction",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "28",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#BeachHotel",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "34",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#AmusementPark",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "29",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#BeachAttraction",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "27",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Gastronomic",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "23",
+    "superClasses" : [ "22" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Luxury",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "36",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Bicycle",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "14",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#CityWithEvents",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "17",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Japanese",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "37",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#HighQualityRestaurant",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "38",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Hotels",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "subClasses" : [ "0", "4", "36", "34", "31" ],
+    "id" : "1",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Restaurants",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "subClasses" : [ "20", "2", "32", "15", "37", "38" ],
+    "id" : "3",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#Monument",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "instances" : 0,
+    "id" : "30",
+    "superClasses" : [ "6" ]
+  } ],
+  "property" : [ {
+    "id" : "5",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "33",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "35",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#LocatedIn",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "range" : "7",
+    "domain" : "6",
+    "attributes" : [ "object", "functional" ],
+    "id" : "5"
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#HeldIn",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "range" : "7",
+    "domain" : "22",
+    "attributes" : [ "object", "functional" ],
+    "id" : "33"
+  }, {
+    "iri" : "http://www.ejemplo.org/ontologias/turismo#HasTypesOfTransportation",
+    "baseIri" : "http://www.ejemplo.org/ontologias/turismo",
+    "range" : "9",
+    "domain" : "7",
+    "attributes" : [ "object" ],
+    "id" : "35"
+  } ]
+}

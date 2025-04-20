@@ -1,0 +1,561 @@
+@prefix : <http://example.org/OntologiaTurismo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.org/OntologiaTurismo#> .
+
+<http://example.org/OntologiaTurismo> rdf:type owl:Ontology ;
+                                       <http://purl.org/dc/terms/description> "An ontology that describes different types of tourist resources in various cities across Spain" ;
+                                       <http://purl.org/dc/terms/issued> "2025-04-19" ;
+                                       <http://purl.org/dc/terms/modified> "2025-04-19" ;
+                                       <http://purl.org/dc/terms/publisher> "Alfredo Benítez Vargas, Computer Engineering student at the Universitat Oberta de Catalunya (UOC)" ;
+                                       <http://purl.org/dc/terms/title> "Ontology of Tourism in Spain" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#owl:sameAs
+owl:owl:sameAs rdf:type owl:AnnotationProperty ;
+               rdfs:comment "Indicates that two resources refer to the same real-world entity" ;
+               rdfs:label "owl:sameAs" .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ejemplo.org/ontologias/turismo#HasTypesOfTransportation
+<http://www.ejemplo.org/ontologias/turismo#HasTypesOfTransportation> rdf:type owl:ObjectProperty ;
+                                                                     rdfs:domain <http://www.ejemplo.org/ontologias/turismo#Cities> ;
+                                                                     rdfs:range <http://www.ejemplo.org/ontologias/turismo#Transports> ;
+                                                                     rdfs:comment "Relates a city to the types of transportation systems available in it" ;
+                                                                     rdfs:label "HasTypesOfTransportation" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#HeldIn
+<http://www.ejemplo.org/ontologias/turismo#HeldIn> rdf:type owl:ObjectProperty ,
+                                                            owl:FunctionalProperty ;
+                                                   rdfs:domain <http://www.ejemplo.org/ontologias/turismo#Events> ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://www.ejemplo.org/ontologias/turismo#HeldIn> ;
+                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass <http://www.ejemplo.org/ontologias/turismo#Cities>
+                                                               ] ;
+                                                   rdfs:range <http://www.ejemplo.org/ontologias/turismo#Cities> ;
+                                                   rdfs:comment "Relates an event to the city where it takes place" ;
+                                                   rdfs:label "HeldIn" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#LocatedIn
+<http://www.ejemplo.org/ontologias/turismo#LocatedIn> rdf:type owl:ObjectProperty ,
+                                                               owl:FunctionalProperty ;
+                                                      rdfs:domain <http://www.ejemplo.org/ontologias/turismo#Attractions> ;
+                                                      rdfs:range <http://www.ejemplo.org/ontologias/turismo#Cities> ;
+                                                      rdfs:comment "Indicates the city in which a given tourism-related entity, such as an attraction, restaurant, hotel, or event, is located" ;
+                                                      rdfs:label "LocatedIn" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.ejemplo.org/ontologias/turismo#hasARating
+<http://www.ejemplo.org/ontologias/turismo#hasARating> rdf:type owl:DatatypeProperty ,
+                                                                owl:FunctionalProperty ;
+                                                       rdfs:domain <http://www.ejemplo.org/ontologias/turismo#Restaurants> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.ejemplo.org/ontologias/turismo#hasARating> ;
+                                                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                     owl:onDataRange xsd:decimal
+                                                                   ] ;
+                                                       rdfs:range xsd:decimal ;
+                                                       rdfs:comment "Represents the average rating score of a restaurant as a decimal number" ;
+                                                       rdfs:label "hasARating" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#hasName
+<http://www.ejemplo.org/ontologias/turismo#hasName> rdf:type owl:DatatypeProperty ,
+                                                             owl:FunctionalProperty ;
+                                                    rdfs:domain <http://www.ejemplo.org/ontologias/turismo#Hotels> ;
+                                                    rdfs:range xsd:string ;
+                                                    rdfs:comment "Represents the official name of a hotel as a text string" ;
+                                                    rdfs:label "hasName" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ejemplo.org/ontologias/turismo#AmusementPark
+<http://www.ejemplo.org/ontologias/turismo#AmusementPark> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Attractions> ;
+                                                          rdfs:comment "A recreational area with various rides, games, and entertainment, designed for family fun and leisure" ;
+                                                          rdfs:label "AmusementPark" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Andalusian
+<http://www.ejemplo.org/ontologias/turismo#Andalusian> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Restaurants> ;
+                                                       rdfs:comment "Establishments that serve traditional Andalusian cuisine, known for its Mediterranean flavors, use of olive oil, and regional specialties like gazpacho and pescaíto frito" ;
+                                                       rdfs:label "Andalusian" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Attractions
+<http://www.ejemplo.org/ontologias/turismo#Attractions> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Tourism> ;
+                                                        rdfs:comment "Attractions are places or activities of interest that draw tourists, such as landmarks, natural wonders, museums, or amusement parks" ;
+                                                        rdfs:label "Attractions" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#BeachAttraction
+<http://www.ejemplo.org/ontologias/turismo#BeachAttraction> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Attractions> ;
+                                                            rdfs:comment "A coastal location or area, typically known for its natural beauty, offering recreational activities such as swimming, sunbathing, and beach sports" ;
+                                                            rdfs:label "BeachAttraction" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#BeachHotel
+<http://www.ejemplo.org/ontologias/turismo#BeachHotel> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Hotels> ;
+                                                       rdfs:comment "Hotels located near or on the beach, offering easy access to the coastline and beach-related amenities" ;
+                                                       rdfs:label "BeachHotel" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Bicycle
+<http://www.ejemplo.org/ontologias/turismo#Bicycle> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Transports> ;
+                                                    rdfs:comment "Bicycle is a human-powered transport vehicle with two wheels, commonly used for short-distance travel and recreational purposes" ;
+                                                    rdfs:label "Bicycle" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#BigCity
+<http://www.ejemplo.org/ontologias/turismo#BigCity> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Cities> ;
+                                                    rdfs:comment "Represents a city that has metro transportation and is classified as a big city" ;
+                                                    rdfs:label "BigCity" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Bus
+<http://www.ejemplo.org/ontologias/turismo#Bus> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Transports> ;
+                                                rdfs:comment "Bus is a type of public transport that operates on fixed routes and schedules, commonly used for travel within and between cities" ;
+                                                rdfs:label "Bus" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Business
+<http://www.ejemplo.org/ontologias/turismo#Business> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Hotels> ;
+                                                     rdfs:comment "Hotels that cater primarily to business travelers, providing amenities such as conference rooms, workspaces, and high-speed internet" ;
+                                                     rdfs:label "Business" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Cities
+<http://www.ejemplo.org/ontologias/turismo#Cities> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Tourism> ;
+                                                   rdfs:comment "Cities are large human settlements that often serve as central destinations for tourism due to their cultural, historical, or economic significance" ;
+                                                   rdfs:label "Cities" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#CityWithEvents
+<http://www.ejemplo.org/ontologias/turismo#CityWithEvents> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Cities> ;
+                                                           rdfs:comment "Represents a city that hosts at least one event" ;
+                                                           rdfs:label "CityWithEvents" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#CulturalAttraction
+<http://www.ejemplo.org/ontologias/turismo#CulturalAttraction> rdf:type owl:Class ;
+                                                               rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Attractions> ;
+                                                               rdfs:comment "Attractions that highlight the cultural heritage of a region, such as museums, historical sites, theaters, and art galleries" ;
+                                                               rdfs:label "CulturalAttractions" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#CulturalCity
+<http://www.ejemplo.org/ontologias/turismo#CulturalCity> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Cities> ;
+                                                         rdfs:comment "City with cultural events" ;
+                                                         rdfs:label "CulturalCity" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#CulturalEvent
+<http://www.ejemplo.org/ontologias/turismo#CulturalEvent> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Events> ;
+                                                          rdfs:comment "Events that celebrate and showcase cultural activities, such as theater performances, art exhibitions, and traditional festivals" ;
+                                                          rdfs:label "CulturalEvent" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Events
+<http://www.ejemplo.org/ontologias/turismo#Events> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Tourism> ;
+                                                   rdfs:comment "Events are organized activities or occurrences intended to attract tourists, such as festivals, exhibitions, or cultural performances" ;
+                                                   rdfs:label "Events" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Gastronomic
+<http://www.ejemplo.org/ontologias/turismo#Gastronomic> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Events> ;
+                                                        rdfs:comment "Events focused on food and culinary experiences, such as food festivals, cooking classes, and gastronomic tours" ;
+                                                        rdfs:label "Gastronomic" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#HighQualityRestaurant
+<http://www.ejemplo.org/ontologias/turismo#HighQualityRestaurant> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Restaurants> ;
+                                                                  rdfs:comment "Represents a restaurant with an average rating higher than 4.5, classified as a high quality restaurant" ;
+                                                                  rdfs:label "HighQualityRestaurant" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Hotels
+<http://www.ejemplo.org/ontologias/turismo#Hotels> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Tourism> ;
+                                                   rdfs:comment "Hotels are commercial establishments that provide lodging, and often meals and other services, for travelers and tourists" ;
+                                                   rdfs:label "Hotels" ;
+                                                   owl:owl:sameAs "https://dbpedia.org/page/Hotel" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Italian
+<http://www.ejemplo.org/ontologias/turismo#Italian> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Restaurants> ;
+                                                    rdfs:comment "Establishments that serve traditional Italian cuisine, characterized by dishes such as pasta, pizza, and risotto, often using fresh ingredients and olive oil" ;
+                                                    rdfs:label "Italian" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Japanese
+<http://www.ejemplo.org/ontologias/turismo#Japanese> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Restaurants> ;
+                                                     rdfs:comment "Establishments that serve traditional Japanese cuisine such as sushi, ramen, and tempura" ;
+                                                     rdfs:label "Japanese" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Luxury
+<http://www.ejemplo.org/ontologias/turismo#Luxury> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Hotels> ;
+                                                   rdfs:comment "Hotels that offer high-end services and amenities, providing an upscale and luxurious experience for guests" ;
+                                                   rdfs:label "Luxury" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Mediterranean
+<http://www.ejemplo.org/ontologias/turismo#Mediterranean> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Restaurants> ;
+                                                          rdfs:comment "Establishments that specialize in Mediterranean cuisine, featuring dishes that emphasize fresh vegetables, olive oil, seafood, and herbs from the Mediterranean region" ;
+                                                          rdfs:label "Mediterranean" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Metro
+<http://www.ejemplo.org/ontologias/turismo#Metro> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Transports> ;
+                                                  rdfs:comment "Metro is a type of rapid transit system, usually underground, that provides fast and efficient transportation within urban areas" ;
+                                                  rdfs:label "Metro" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Mexican
+<http://www.ejemplo.org/ontologias/turismo#Mexican> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Restaurants> ;
+                                                    rdfs:comment "Establishments that specialize in traditional Mexican cuisine, often featuring dishes such as tacos, enchiladas, and guacamole" ;
+                                                    rdfs:label "Mexican" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Monument
+<http://www.ejemplo.org/ontologias/turismo#Monument> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Attractions> ;
+                                                     rdfs:comment "A significant structure or site, often with historical, cultural, or architectural importance, that attracts visitors" ;
+                                                     rdfs:label "Monument" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Museum
+<http://www.ejemplo.org/ontologias/turismo#Museum> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Attractions> ;
+                                                   rdfs:comment "A place where historical, cultural, or artistic exhibits are displayed for the public to view and learn from" ;
+                                                   rdfs:label "Museum" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#MusicEvent
+<http://www.ejemplo.org/ontologias/turismo#MusicEvent> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Events> ;
+                                                       rdfs:comment "Events centered around music, such as concerts, music festivals, and live performances, featuring various genres and artists" ;
+                                                       rdfs:label "MusicEvent" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Restaurants
+<http://www.ejemplo.org/ontologias/turismo#Restaurants> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Tourism> ;
+                                                        rdfs:comment "Restaurants are establishments that prepare and serve food and drinks to customers, often catering to both locals and tourists" ;
+                                                        rdfs:label "Restaurants" ;
+                                                        owl:owl:sameAs "https://dbpedia.org/page/Restaurant" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Rural
+<http://www.ejemplo.org/ontologias/turismo#Rural> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Hotels> ;
+                                                  rdfs:comment "Hotels located in rural or countryside areas, offering a peaceful environment and connection to nature" ;
+                                                  rdfs:label "Rural" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Sporting
+<http://www.ejemplo.org/ontologias/turismo#Sporting> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Events> ;
+                                                     rdfs:comment "Events focused on physical activities and competitions, such as sports matches, tournaments, and athletic events" ;
+                                                     rdfs:label "Sporting" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Taxi
+<http://www.ejemplo.org/ontologias/turismo#Taxi> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Transports> ;
+                                                 rdfs:comment "Taxi is a type of transport service that provides on-demand rides for individual passengers or small groups, typically within a city" ;
+                                                 rdfs:label "Taxi" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Technology
+<http://www.ejemplo.org/ontologias/turismo#Technology> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Events> ;
+                                                       rdfs:comment "Events focused on technological innovations and developments, such as tech conferences, product launches, and exhibitions of new technologies" ;
+                                                       rdfs:label "Technology" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Tourism
+<http://www.ejemplo.org/ontologias/turismo#Tourism> rdf:type owl:Class ;
+                                                    rdfs:comment "Tourism involves travel for leisure, business, or cultural purposes" ;
+                                                    rdfs:label "Tourism" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Tourist
+<http://www.ejemplo.org/ontologias/turismo#Tourist> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Hotels> ;
+                                                    rdfs:comment "Hotels specifically designed or popular with tourists, offering services and amenities tailored to their needs" ;
+                                                    rdfs:label "Tourist" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Tram
+<http://www.ejemplo.org/ontologias/turismo#Tram> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Transports> ;
+                                                 rdfs:comment "Tram is a rail-based public transport vehicle that typically operates on tracks laid along urban streets, providing short- to medium-distance service" ;
+                                                 rdfs:label "Tram" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Transports
+<http://www.ejemplo.org/ontologias/turismo#Transports> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.ejemplo.org/ontologias/turismo#Tourism> ;
+                                                       rdfs:comment "Transports refer to the various means of travel used by tourists to reach and move between destinations, such as buses, trains, airplanes, or rental cars" ;
+                                                       rdfs:label "Transports" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.ejemplo.org/ontologias/turismo#AtraccionCastilloZaragoza
+<http://www.ejemplo.org/ontologias/turismo#AtraccionCastilloZaragoza> rdf:type owl:NamedIndividual ;
+                                                                      rdfs:comment "Represents a tourist attraction, a historic castle located in the city of Zaragoza" ;
+                                                                      rdfs:label "AtraccionCastilloZaragoza" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Barcelona
+<http://www.ejemplo.org/ontologias/turismo#Barcelona> rdf:type owl:NamedIndividual ;
+                                                      rdfs:comment "A major city in northeastern Spain, renowned for its modernist architecture, cultural heritage, and its Mediterranean beaches" ;
+                                                      rdfs:label "Barcelona" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Bilbao
+<http://www.ejemplo.org/ontologias/turismo#Bilbao> rdf:type owl:NamedIndividual ;
+                                                   rdfs:comment "A dynamic city in northern Spain, famous for its modern architecture, the Guggenheim Museum, and its rich Basque culture" ;
+                                                   rdfs:label "Bilbao" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Cadiz
+<http://www.ejemplo.org/ontologias/turismo#Cadiz> rdf:type owl:NamedIndividual ;
+                                                  rdfs:comment "A port city in southwestern Spain, considered one of the oldest continuously inhabited cities in Western Europe, known for its historic sites and coastal charm" ;
+                                                  rdfs:label "Cadiz" ;
+                                                  owl:owl:sameAs "https://dbpedia.org/page/C%C3%A1diz" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#EventoCongresoCadiz
+<http://www.ejemplo.org/ontologias/turismo#EventoCongresoCadiz> rdf:type owl:NamedIndividual ;
+                                                                rdfs:comment "Represents a congress event that takes place in the city of Cádiz" ;
+                                                                rdfs:label "EventoCongresoCadiz" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#HotelVistaSevilla
+<http://www.ejemplo.org/ontologias/turismo#HotelVistaSevilla> rdf:type owl:NamedIndividual ;
+                                                              rdfs:comment "Represents a hotel located in the city of Seville" ;
+                                                              rdfs:label "HotelVistaSevilla" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Madrid
+<http://www.ejemplo.org/ontologias/turismo#Madrid> rdf:type owl:NamedIndividual ;
+                                                   rdfs:comment "The capital city of Spain, known for its historical landmarks, vibrant culture, museums, and as a political and economic center" ;
+                                                   rdfs:label "Madrid" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Malaga
+<http://www.ejemplo.org/ontologias/turismo#Malaga> rdf:type owl:NamedIndividual ;
+                                                   rdfs:comment "A vibrant coastal city in southern Spain, known for its Mediterranean beaches, Picasso Museum, and lively cultural scene" ;
+                                                   rdfs:label "Malaga" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Pamplona
+<http://www.ejemplo.org/ontologias/turismo#Pamplona> rdf:type owl:NamedIndividual ;
+                                                     rdfs:comment "A city in northern Spain, internationally known for the Running of the Bulls during the San Fermín festival" ;
+                                                     rdfs:label "Pamplona" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#RestauranteTradicionToledo
+<http://www.ejemplo.org/ontologias/turismo#RestauranteTradicionToledo> rdf:type owl:NamedIndividual ;
+                                                                       rdfs:comment "Represents a traditional restaurant located in the city of Toledo" ;
+                                                                       rdfs:label "RestauranteTradicionToledo" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#SanSebastian
+<http://www.ejemplo.org/ontologias/turismo#SanSebastian> rdf:type owl:NamedIndividual ;
+                                                         rdfs:comment "A coastal city in northern Spain, famous for its beautiful beaches, Basque cuisine, and the annual San Sebastián International Film Festival" ;
+                                                         rdfs:label "SanSebastian" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Sevilla
+<http://www.ejemplo.org/ontologias/turismo#Sevilla> rdf:type owl:NamedIndividual ;
+                                                    rdfs:comment "A historic city in southern Spain, renowned for its flamenco culture, Moorish architecture, and landmarks such as the Seville Cathedral and the Alcázar" ;
+                                                    rdfs:label "Sevilla" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Toledo
+<http://www.ejemplo.org/ontologias/turismo#Toledo> rdf:type owl:NamedIndividual ;
+                                                   rdfs:comment "A historic city in central Spain, known for its medieval architecture, rich cultural heritage, and significance in Spanish history" ;
+                                                   rdfs:label "Toledo" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Valencia
+<http://www.ejemplo.org/ontologias/turismo#Valencia> rdf:type owl:NamedIndividual ;
+                                                     rdfs:comment "A vibrant city on Spain's southeastern coast, famous for its arts, science complex, beaches, and the annual Las Fallas festival" ;
+                                                     rdfs:label "Valencia" .
+
+
+###  http://www.ejemplo.org/ontologias/turismo#Zaragoza
+<http://www.ejemplo.org/ontologias/turismo#Zaragoza> rdf:type owl:NamedIndividual ;
+                                                     rdfs:comment "A historic city in northeastern Spain, known for its Roman and Moorish architecture, the Basilica del Pilar, and its vibrant cultural scene" ;
+                                                     rdfs:label "Zaragoza" .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/t> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a city has cultural events then it is considered a cultural city" ;
+   rdfs:label "CulturalCityR3" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HeldIn> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#CulturalEvent> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#CulturalCity> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If an event is held in a city, then the city is classified as a \"City with Events\"" ;
+   rdfs:label "CityEventR1" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HeldIn> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#Events> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/e>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#CityWithEvents> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a city has metro transportation, it is classified as a Big City" ;
+   rdfs:label "BigCityByMetroR2" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#Cities> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.ejemplo.org/ontologias/turismo#HasTypesOfTransportation> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/t>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#Metro> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/t>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.ejemplo.org/ontologias/turismo#BigCity> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/alfbe/ontologies/2025/3/untitled-ontology-13/c>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
