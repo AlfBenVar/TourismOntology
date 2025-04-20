@@ -10,7 +10,8 @@
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:terms="http://purl.org/dc/terms/">
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:turismo="http://www.ejemplo.org/ontologias/turismo#">
     <owl:Ontology rdf:about="http://example.org/OntologiaTurismo">
         <terms:description>An ontology that describes different types of tourist resources in various cities across Spain</terms:description>
         <terms:issued>2025-04-19</terms:issued>
@@ -118,8 +119,7 @@
         <rdfs:domain>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ejemplo.org/ontologias/turismo#HeldIn"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+                <owl:someValuesFrom rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
             </owl:Restriction>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
@@ -608,10 +608,22 @@
     
 
 
+    <!-- http://example.org/OntologiaTurismo#GeneralMeter -->
+
+
+    <owl:NamedIndividual rdf:about="http://example.org/OntologiaTurismo#GeneralMeter">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Transports"/>
+        <rdfs:comment>GeneralMeter</rdfs:comment>
+        <rdfs:comment>Subway transportation in cities</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.ejemplo.org/ontologias/turismo#AtraccionCastilloZaragoza -->
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#AtraccionCastilloZaragoza">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Monument"/>
         <rdfs:comment>Represents a tourist attraction, a historic castle located in the city of Zaragoza</rdfs:comment>
         <rdfs:label>AtraccionCastilloZaragoza</rdfs:label>
     </owl:NamedIndividual>
@@ -622,6 +634,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#Barcelona">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>A major city in northeastern Spain, renowned for its modernist architecture, cultural heritage, and its Mediterranean beaches</rdfs:comment>
         <rdfs:label>Barcelona</rdfs:label>
     </owl:NamedIndividual>
@@ -632,6 +646,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#Bilbao">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>A dynamic city in northern Spain, famous for its modern architecture, the Guggenheim Museum, and its rich Basque culture</rdfs:comment>
         <rdfs:label>Bilbao</rdfs:label>
     </owl:NamedIndividual>
@@ -642,6 +658,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#Cadiz">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>A port city in southwestern Spain, considered one of the oldest continuously inhabited cities in Western Europe, known for its historic sites and coastal charm</rdfs:comment>
         <rdfs:label>Cadiz</rdfs:label>
         <owl1:sameAs>https://dbpedia.org/page/C%C3%A1diz</owl1:sameAs>
@@ -653,6 +671,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#EventoCongresoCadiz">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Events"/>
+        <turismo:HeldIn rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cadiz"/>
         <rdfs:comment>Represents a congress event that takes place in the city of Cádiz</rdfs:comment>
         <rdfs:label>EventoCongresoCadiz</rdfs:label>
     </owl:NamedIndividual>
@@ -663,6 +683,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#HotelVistaSevilla">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Hotels"/>
+        <turismo:hasName>Hotel Vista Sevilla</turismo:hasName>
         <rdfs:comment>Represents a hotel located in the city of Seville</rdfs:comment>
         <rdfs:label>HotelVistaSevilla</rdfs:label>
     </owl:NamedIndividual>
@@ -673,6 +695,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#Madrid">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>The capital city of Spain, known for its historical landmarks, vibrant culture, museums, and as a political and economic center</rdfs:comment>
         <rdfs:label>Madrid</rdfs:label>
     </owl:NamedIndividual>
@@ -683,6 +707,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#Malaga">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>A vibrant coastal city in southern Spain, known for its Mediterranean beaches, Picasso Museum, and lively cultural scene</rdfs:comment>
         <rdfs:label>Malaga</rdfs:label>
     </owl:NamedIndividual>
@@ -693,6 +719,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#Pamplona">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>A city in northern Spain, internationally known for the Running of the Bulls during the San Fermín festival</rdfs:comment>
         <rdfs:label>Pamplona</rdfs:label>
     </owl:NamedIndividual>
@@ -703,6 +731,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#RestauranteTradicionToledo">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Restaurants"/>
+        <turismo:hasARating rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</turismo:hasARating>
         <rdfs:comment>Represents a traditional restaurant located in the city of Toledo</rdfs:comment>
         <rdfs:label>RestauranteTradicionToledo</rdfs:label>
     </owl:NamedIndividual>
@@ -713,6 +743,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#SanSebastian">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>A coastal city in northern Spain, famous for its beautiful beaches, Basque cuisine, and the annual San Sebastián International Film Festival</rdfs:comment>
         <rdfs:label>SanSebastian</rdfs:label>
     </owl:NamedIndividual>
@@ -723,6 +755,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#Sevilla">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>A historic city in southern Spain, renowned for its flamenco culture, Moorish architecture, and landmarks such as the Seville Cathedral and the Alcázar</rdfs:comment>
         <rdfs:label>Sevilla</rdfs:label>
     </owl:NamedIndividual>
@@ -733,6 +767,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#Toledo">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>A historic city in central Spain, known for its medieval architecture, rich cultural heritage, and significance in Spanish history</rdfs:comment>
         <rdfs:label>Toledo</rdfs:label>
     </owl:NamedIndividual>
@@ -743,6 +779,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#Valencia">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>A vibrant city on Spain&apos;s southeastern coast, famous for its arts, science complex, beaches, and the annual Las Fallas festival</rdfs:comment>
         <rdfs:label>Valencia</rdfs:label>
     </owl:NamedIndividual>
@@ -753,6 +791,8 @@
 
 
     <owl:NamedIndividual rdf:about="http://www.ejemplo.org/ontologias/turismo#Zaragoza">
+        <rdf:type rdf:resource="http://www.ejemplo.org/ontologias/turismo#Cities"/>
+        <turismo:HasTypesOfTransportation rdf:resource="http://example.org/OntologiaTurismo#GeneralMeter"/>
         <rdfs:comment>A historic city in northeastern Spain, known for its Roman and Moorish architecture, the Basilica del Pilar, and its vibrant cultural scene</rdfs:comment>
         <rdfs:label>Zaragoza</rdfs:label>
     </owl:NamedIndividual>
